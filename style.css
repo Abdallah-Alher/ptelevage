@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* HERO ÉLEVAGE */
+
+.arriere-plan {
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    margin-top: 40px; /* utile si tu as une navbar fixe dans le projet global */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("https://images.pexels.com/photos/33202347/pexels-photo-33202347.jpeg?cs=srgb&fm=jpg&q=80&w=1600");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #D4AF37;
+    position: relative;
+    padding: 20px;
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #fff;
+    padding: 40px 50px;
+    text-align: center;
+    font-weight: 400;
+    max-width: 900px;
+}
+
+/* SECTION PRODUITS */
+
+.products-section {
+    width: 80%;
+    margin: 60px auto;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+
+/* Grille des cartes */
+.products-grid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* CARTE PRODUIT */
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 1px 1px 15px 1px #1f3d27ee;
+}
+
+/* Badge (Nouveau, Populaire, Offre, etc.) */
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #D4AF37;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    z-index: 5;
+}
+
+/* Image (lien <a>) */
+.product-image {
+    display: block;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+/* Contenu texte */
+.product-content {
+    padding: 25px;
+}
+
+.product-category {
+    color: #D4AF37;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.product-title {
+    font-size: 1.4rem;
+    color: #2E5939;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.product-description {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Pied de carte : prix + bouton */
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    color: #2E5939;
+    font-weight: bold;
+}
+
+.currency {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Bouton "Ajouter" */
+.add-to-cart {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #2E5939, #3a6b47);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(46, 89, 57, 0.3);
+}
+
+.add-to-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(46, 89, 57, 0.4);
+}
+
+/* =========================
+   MODAL PRODUIT (POPUP)
+   ========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+/* Quand on cible #modal-xxx dans l’URL → on affiche */
+.modal:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Overlay flou et assombri */
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    display: block;
+}
+
+/* Contenu du popup */
+.modal-content {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 900px;
+    width: 90%;
+    padding: 24px 24px 20px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.4);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Croix de fermeture */
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close:hover {
+    color: #2E5939;
+    transform: scale(1.05);
+}
+
+/* 1ère ligne : grande image */
+.modal-main-image {
+    width: 100%;
+    height: 260px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f1f5f9;
+}
+
+.modal-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 2ème ligne : miniatures + bloc prix/bouton */
+.modal-row-2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Thumbnails */
+.modal-thumbs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.modal-thumb {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.modal-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Bloc prix + CTA */
+.modal-price-block {
+    margin-left: auto;
+    text-align: right;
+    min-width: 180px;
+}
+
+.modal-price-main {
+    font-size: 1.4rem;
+    color: #2E5939;
+    font-weight: 700;
+}
+
+.modal-price-note {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+/* Bouton dans le modal */
+.modal-add {
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #2E5939, #3a6b47);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 10px rgba(46, 89, 57, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-add i {
+    font-size: 0.9rem;
+}
+
+.modal-add:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(46, 89, 57, 0.4);
+}
+
+/* 3ème ligne : détails texte */
+.modal-details {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 10px;
+    margin-top: 4px;
+}
+
+.modal-details h4 {
+    font-size: 1rem;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.modal-details p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+/* Laptops / grands écrans moyens */
+@media (max-width: 1440px) {
+    .products-grid {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+    .products-section {
+        width: 90%;
+    }
+}
+
+/* Tablettes */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .modal-content {
+        padding: 18px 16px 16px;
+    }
+
+    .modal-main-image {
+        height: 220px;
+    }
+
+    .modal-row-2 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .modal-price-block {
+        margin-left: 0;
+        text-align: left;
+    }
+}
+
+/* Téléphones petits */
+@media (max-width: 425px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .products-section {
+        width: 90%;
+    }
+
+    .arriere-plan {
+        margin-top: 9rem;
+    }
+
+    .hero-content {
+        margin-top: 10rem;
+        text-align: center;
+    }
+
+    .description {
+        padding: 20px;
+        font-size: 1.05rem;
+    }
+
+    .modal-main-image {
+        height: 200px;
+    }
+
+    .modal-thumbs {
+        gap: 6px;
+    }
+
+    .modal-thumb {
+        width: 64px;
+        height: 64px;
+    }
+}
