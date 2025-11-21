@@ -109,7 +109,7 @@ body {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     position: relative;
 }
 
@@ -211,7 +211,7 @@ body {
     border-radius: 25px;
     cursor: pointer;
     font-weight: bold;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(46, 89, 57, 0.3);
     font-size: 0.9rem;
 }
@@ -234,7 +234,7 @@ body {
     backdrop-filter: blur(4px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s üs; /* si problème, remplacer "üs" par "ease" */
+    transition: opacity 0.25s ease;
     z-index: 999;
 }
 
@@ -259,7 +259,7 @@ body {
     border-radius: 18px;
     max-width: 900px;
     width: 100%;
-    padding: 20px 24px 24px;
+    padding: 22px 24px 24px;
     z-index: 1000;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     display: flex;
@@ -267,12 +267,21 @@ body {
     gap: 20px;
 }
 
-/* Bouton de fermeture (croix) */
+/* Bouton de fermeture (croix dans un cercle, légèrement au-dessus) */
 .modal-close {
     position: absolute;
-    top: 10px;
-    right: 16px;
-    font-size: 1.8rem;
+    top: -18px;
+    right: -18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
     text-decoration: none;
     color: #444;
     cursor: pointer;
@@ -281,43 +290,167 @@ body {
 
 .modal-close:hover {
     color: #000;
+    background: #f9fafb;
 }
 
-/* Grande image en haut */
+/* Grande image en haut (galerie) */
+/* Grande image en haut (galerie) */
 .modal-main-image {
     width: 100%;
-    height: 320px;
+    max-height: 420px;          /* limite la hauteur */
+    aspect-ratio: 16 / 9;       /* ratio fixe pour éviter la déformation */
     border-radius: 14px;
     overflow: hidden;
+    background: #000;
+    position: relative;
 }
 
-.modal-main-image img {
+/* cache les radios */
+.modal-main-image input[type="radio"] {
+    display: none;
+}
+
+/* conteneur des images */
+/* Conteneur des slides */
+.modal-main-image-inner {
+    display: flex;
+    height: 100%;
+    /* on laisse la largeur se calculer automatiquement (3 x 100%) */
+}
+
+/* Chaque image prend exactement 100% du cadre, sans se déformer */
+.modal-main-image-inner img {
+    flex: 0 0 100%;             /* chaque slide = 100% de la largeur du conteneur */
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;          /* on recadre mais on ne déforme pas */
+    display: block;
+}
+
+/* ====== GALERIES : SLIDE SELON LE RADIO CHECKED ====== */
+
+/* BŒUF */
+#boeuf-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#boeuf-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#boeuf-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
+}
+
+/* MOUTON */
+#mouton-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#mouton-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#mouton-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
+}
+
+/* CHEVRE */
+#chevre-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#chevre-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#chevre-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
+}
+
+/* POULET */
+#poulet-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#poulet-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#poulet-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
+}
+
+/* OEUFS */
+#oeufs-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#oeufs-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#oeufs-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
+}
+
+/* LAIT */
+#lait-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#lait-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#lait-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
+}
+
+/* FROMAGE */
+#fromage-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#fromage-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#fromage-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
+}
+
+/* KILICHI */
+#kilichi-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#kilichi-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#kilichi-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
+}
+
+/* POISSON */
+#poisson-img-1:checked ~ .modal-main-image-inner {
+    transform: translateX(0);
+}
+#poisson-img-2:checked ~ .modal-main-image-inner {
+    transform: translateX(-100%);
+}
+#poisson-img-3:checked ~ .modal-main-image-inner {
+    transform: translateX(-200%);
 }
 
 /* Ligne 2 : miniatures + prix & bouton */
 .modal-row-2 {
     display: flex;
     gap: 20px;
-    align-items: stretch;
+    align-items: stretch;     /* les 2 colonnes ont la même hauteur */
     flex-wrap: wrap;
 }
 
-/* Miniatures */
+/* Colonne miniatures */
 .modal-thumbs {
     flex: 1.2;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    min-height: 140px;        /* même base de hauteur que le bloc prix */
 }
-
 .modal-thumb {
     height: 90px;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #eee;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .modal-thumb img {
@@ -326,7 +459,13 @@ body {
     object-fit: cover;
 }
 
-/* Bloc prix & bouton */
+.modal-thumb:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #2E5939;
+}
+
+/* Bloc prix & bouton à droite */
 .modal-price-block {
     flex: 1;
     background: #f8faf9;
@@ -334,8 +473,11 @@ body {
     padding: 16px 18px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;  /* centre VERTICALEMENT le contenu */
+    align-items: center;      /* centre HORIZONTALEMENT le contenu */
     gap: 8px;
+    min-height: 140px;        /* même hauteur que les miniatures */
+    text-align: center;
 }
 
 .modal-price-main {
@@ -351,7 +493,8 @@ body {
 
 .modal-add {
     margin-top: 8px;
-    align-self: flex-start;
+    /* align-self: flex-start;  <-- à supprimer ou commenter */
+    align-self: center;        /* ✅ centre le bouton dans le bloc */
     padding: 10px 20px;
     background: linear-gradient(135deg, #2E5939, #3a6b47);
     color: #fff;
@@ -365,6 +508,7 @@ body {
     box-shadow: 0 4px 10px rgba(46, 89, 57, 0.35);
     font-size: 0.95rem;
 }
+
 
 .modal-add i {
     font-size: 0.95rem;
@@ -429,6 +573,7 @@ body {
 
     .modal-price-block {
         order: 1;
+        width: 100%;
     }
 }
 
