@@ -4,19 +4,24 @@
     box-sizing: border-box;
 }
 
+/* Défilement fluide entre les ancres */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
     color: #333;
 }
 
-/* HERO ÉLEVAGE */
+/* =================== HERO ÉLEVAGE =================== */
 
 .arriere-plan {
     height: 100vh;
     width: 100%;
     margin: auto;
-    margin-top: 40px; /* utile si tu as une navbar fixe dans le projet global */
+    margin-top: 40px; /* espace sous une éventuelle navbar fixe globale */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,10 +30,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-.hero-content {
     text-align: center;
+    padding: 0 1.5rem;
 }
 
 .hero-content h1 {
@@ -59,19 +62,34 @@ body {
     font-size: 1.2rem;
     line-height: 1.8;
     color: #fff;
-    padding: 40px 50px;
+    padding: 0 50px 40px;
     text-align: center;
     font-weight: 400;
     max-width: 900px;
 }
 
-/* SECTION PRODUITS */
+/* =================== SECTION PRODUITS =================== */
 
 .products-section {
     width: 80%;
     margin: 60px auto;
     padding: 0 20px;
     border-radius: 10px;
+}
+
+/* Bloc catégorie (titre + grille) */
+.category-block {
+    margin-bottom: 3.5rem;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: #2E5939;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
 }
 
 /* Grille des cartes */
@@ -81,10 +99,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
-/* CARTE PRODUIT */
+/* =================== CARTE PRODUIT =================== */
 
 .product-card {
     background: white;
@@ -111,18 +129,17 @@ body {
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: bold;
-    z-index: 5;
+    z-index: 10;
 }
 
-/* Image (lien <a>) */
+/* Image cliquable pour ouvrir le modal */
 .product-image {
-    display: block;
     width: 100%;
     height: 280px;
     overflow: hidden;
     position: relative;
     background: #f0f0f0;
-    cursor: pointer;
+    display: block;
 }
 
 .product-image img {
@@ -169,13 +186,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 10px;
+    padding-top: 15px;
     border-top: 1px solid #eee;
 }
 
 .product-price {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #2E5939;
     font-weight: bold;
 }
@@ -187,7 +204,7 @@ body {
 
 /* Bouton "Ajouter" */
 .add-to-cart {
-    padding: 12px 25px;
+    padding: 10px 22px;
     background: linear-gradient(135deg, #2E5939, #3a6b47);
     color: white;
     border: none;
@@ -196,6 +213,7 @@ body {
     font-weight: bold;
     transition: all 0.3s;
     box-shadow: 0 4px 10px rgba(46, 89, 57, 0.3);
+    font-size: 0.9rem;
 }
 
 .add-to-cart:hover {
@@ -203,77 +221,74 @@ body {
     box-shadow: 0 6px 15px rgba(46, 89, 57, 0.4);
 }
 
-/* =========================
-   MODAL PRODUIT (POPUP)
-   ========================= */
+/* =================== MODAL / POPUP PRODUIT =================== */
 
 .modal {
     position: fixed;
     inset: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
+    transition: opacity 0.25s üs; /* si problème, remplacer "üs" par "ease" */
+    z-index: 999;
 }
 
-/* Quand on cible #modal-xxx dans l’URL → on affiche */
+/* Quand l'ancre correspond à l'id du modal */
 .modal:target {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* Overlay flou et assombri */
+/* Zone floue cliquable pour fermer */
 .modal-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(5px);
-    cursor: pointer;
     display: block;
+    cursor: pointer;
 }
 
-/* Contenu du popup */
+/* Contenu de la fenêtre */
 .modal-content {
     position: relative;
     background: #ffffff;
-    border-radius: 16px;
+    border-radius: 18px;
     max-width: 900px;
-    width: 90%;
-    padding: 24px 24px 20px;
-    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.4);
-    z-index: 1;
+    width: 100%;
+    padding: 20px 24px 24px;
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
 }
 
-/* Croix de fermeture */
+/* Bouton de fermeture (croix) */
 .modal-close {
     position: absolute;
-    top: 12px;
+    top: 10px;
     right: 16px;
-    font-size: 1.7rem;
-    cursor: pointer;
-    color: #64748b;
+    font-size: 1.8rem;
     text-decoration: none;
-    transition: color 0.2s ease, transform 0.2s ease;
+    color: #444;
+    cursor: pointer;
+    z-index: 1001;
 }
 
 .modal-close:hover {
-    color: #2E5939;
-    transform: scale(1.05);
+    color: #000;
 }
 
-/* 1ère ligne : grande image */
+/* Grande image en haut */
 .modal-main-image {
     width: 100%;
-    height: 260px;
-    border-radius: 12px;
+    height: 320px;
+    border-radius: 14px;
     overflow: hidden;
-    background: #f1f5f9;
 }
 
 .modal-main-image img {
@@ -282,28 +297,27 @@ body {
     object-fit: cover;
 }
 
-/* 2ème ligne : miniatures + bloc prix/bouton */
+/* Ligne 2 : miniatures + prix & bouton */
 .modal-row-2 {
     display: flex;
-    align-items: center;
     gap: 20px;
+    align-items: stretch;
     flex-wrap: wrap;
 }
 
-/* Thumbnails */
+/* Miniatures */
 .modal-thumbs {
-    display: flex;
+    flex: 1.2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    flex-wrap: wrap;
 }
 
 .modal-thumb {
-    width: 72px;
-    height: 72px;
+    height: 90px;
     border-radius: 10px;
     overflow: hidden;
-    border: 2px solid #e2e8f0;
-    background: #f8fafc;
+    border: 1px solid #eee;
 }
 
 .modal-thumb img {
@@ -312,11 +326,16 @@ body {
     object-fit: cover;
 }
 
-/* Bloc prix + CTA */
+/* Bloc prix & bouton */
 .modal-price-block {
-    margin-left: auto;
-    text-align: right;
-    min-width: 180px;
+    flex: 1;
+    background: #f8faf9;
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
 }
 
 .modal-price-main {
@@ -326,59 +345,50 @@ body {
 }
 
 .modal-price-note {
-    font-size: 0.9rem;
-    color: #64748b;
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    color: #666;
 }
 
-/* Bouton dans le modal */
 .modal-add {
-    padding: 10px 22px;
+    margin-top: 8px;
+    align-self: flex-start;
+    padding: 10px 20px;
     background: linear-gradient(135deg, #2E5939, #3a6b47);
-    color: white;
-    border: none;
+    color: #fff;
     border-radius: 999px;
+    border: none;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.95rem;
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    box-shadow: 0 4px 10px rgba(46, 89, 57, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(46, 89, 57, 0.35);
+    font-size: 0.95rem;
 }
 
 .modal-add i {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .modal-add:hover {
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(46, 89, 57, 0.4);
+    box-shadow: 0 6px 14px rgba(46, 89, 57, 0.45);
 }
 
-/* 3ème ligne : détails texte */
-.modal-details {
-    border-top: 1px solid #e5e7eb;
-    padding-top: 10px;
-    margin-top: 4px;
-}
-
+/* Ligne 3 : détails texte */
 .modal-details h4 {
-    font-size: 1rem;
-    color: #111827;
-    margin-bottom: 6px;
+    font-size: 1.2rem;
+    color: #2E5939;
+    margin-bottom: 8px;
 }
 
 .modal-details p {
-    font-size: 0.95rem;
-    color: #4b5563;
-    line-height: 1.7;
+    font-size: 0.98rem;
+    color: #555;
+    line-height: 1.6;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* =================== RESPONSIVE =================== */
 
 /* Laptops / grands écrans moyens */
 @media (max-width: 1440px) {
@@ -393,66 +403,85 @@ body {
 }
 
 /* Tablettes */
+@media (max-width: 992px) {
+
+    .arriere-plan {
+        height: auto;
+        padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .description {
+        padding: 0 20px 30px;
+        font-size: 1.05rem;
+    }
+
+    .modal-row-2 {
+        flex-direction: column;
+    }
+
+    .modal-thumbs {
+        order: 2;
+    }
+
+    .modal-price-block {
+        order: 1;
+    }
+}
+
+/* Tablettes étroites & mobiles larges */
 @media (max-width: 768px) {
     .products-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+        width: 100%;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
     }
 
     .modal-content {
-        padding: 18px 16px 16px;
+        padding: 16px 16px 20px;
+    }
+
+    .modal-main-image {
+        height: 260px;
+    }
+}
+
+/* Téléphones petits */
+@media (max-width: 480px) {
+
+    .arriere-plan {
+        margin-top: 9rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+    }
+
+    .description {
+        padding: 0 10px 30px;
+    }
+
+    .products-section {
+        width: 95%;
+        padding: 0 10px;
     }
 
     .modal-main-image {
         height: 220px;
     }
 
-    .modal-row-2 {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .modal-price-block {
-        margin-left: 0;
-        text-align: left;
-    }
-}
-
-/* Téléphones petits */
-@media (max-width: 425px) {
-    .products-grid {
-        grid-template-columns: 1fr;
-        width: 100%;
-    }
-
-    .products-section {
-        width: 90%;
-    }
-
-    .arriere-plan {
-        margin-top: 9rem;
-    }
-
-    .hero-content {
-        margin-top: 10rem;
-        text-align: center;
-    }
-
-    .description {
-        padding: 20px;
-        font-size: 1.05rem;
-    }
-
-    .modal-main-image {
-        height: 200px;
-    }
-
     .modal-thumbs {
-        gap: 6px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .modal-thumb {
-        width: 64px;
-        height: 64px;
+        height: 70px;
     }
 }

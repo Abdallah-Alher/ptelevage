@@ -6,7 +6,8 @@
     <title>Produits d’élevage | Made In Niger</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- CSS spécifique à la page élevage (hero + cartes + modals) -->
     <link rel="stylesheet" href="style.css">
@@ -32,193 +33,214 @@
             </p>
         </section>
 
-        <!-- SECTION CARTES PRODUITS -->
+        <!-- =============== SECTION CARTES PRODUITS =============== -->
         <section class="products-section" id="produits">
-            <div class="products-grid">
 
-                <!-- 1. COLIS BŒUF -->
-                <div class="product-card">
-                    <span class="product-badge">Nouveau</span>
+            <!-- 1️⃣ TROUPEAUX & VIANDES LOCALES -->
+            <div class="category-block">
+                <h3 class="category-title">Troupeaux & viandes locales</h3>
+                <div class="products-grid">
 
-                    <!-- Image cliquable (ouvre le modal via :target) -->
-                    <a href="#modal-boeuf" class="product-image">
-                        <img src="https://images.pexels.com/photos/33202347/pexels-photo-33202347.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
-                             alt="Éleveurs sahéliens guidant un troupeau de bœufs">
-                    </a>
+                    <!-- COLIS BŒUF -->
+                    <div class="product-card">
+                        <span class="product-badge">Nouveau</span>
 
-                    <div class="product-content">
-                        <div class="product-category">BOVINS</div>
-                        <h3 class="product-title">Colis Bœuf Sahel</h3>
-                        <p class="product-description">
-                            Colis de 10 kg de bœuf local, idéal pour grillades, rôtis et sauces familiales.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">26,000 <span class="currency">FCFA</span></div>
-                            <button class="add-to-cart">Ajouter</button>
+                        <a href="#modal-boeuf" class="product-image">
+                            <img src="images/Viade_boeuf.jpg"
+                                 alt="Éleveurs sahéliens guidant un troupeau de bœufs">
+                        </a>
+
+                        <div class="product-content">
+                            <div class="product-category">BOVINS</div>
+                            <h3 class="product-title">Colis Bœuf Sahel</h3>
+                            <p class="product-description">
+                                Colis de 10 kg de bœuf local, idéal pour grillades, rôtis et sauces familiales.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">26,000 <span class="currency">FCFA</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 2. MOUTON DE FÊTE -->
-                <div class="product-card">
-                    <a href="#modal-mouton" class="product-image">
-                        <img src="images/mouton.jpg"
-                             alt="Moutons prêts pour les fêtes au Niger">
-                    </a>
-                    <div class="product-content">
-                        <div class="product-category">OVINS</div>
-                        <h3 class="product-title">Mouton de Fête</h3>
-                        <p class="product-description">
-                            Moutons sélectionnés pour Tabaski et grandes cérémonies, prêts à livrer.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">80,000 <span class="currency">FCFA</span></div>
-                            <button class="add-to-cart">Ajouter</button>
+                    <!-- MOUTON DE FÊTE -->
+                    <div class="product-card">
+                        <a href="#modal-mouton" class="product-image">
+                            <img src="images/mouton.jpg"
+                                 alt="Moutons prêts pour les fêtes au Niger">
+                        </a>
+                        <div class="product-content">
+                            <div class="product-category">OVINS</div>
+                            <h3 class="product-title">Mouton de Fête</h3>
+                            <p class="product-description">
+                                Moutons sélectionnés pour Tabaski et grandes cérémonies, prêts à livrer.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">80,000 <span class="currency">FCFA</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 3. CHÈVRE LOCALE -->
-                <div class="product-card">
-                    <a href="#modal-chevre" class="product-image">
-                        <img src="https://images.pexels.com/photos/26173202/pexels-photo-26173202.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
-                             alt="Troupeau de chèvres dans un enclos">
-                    </a>
-                    <div class="product-content">
-                        <div class="product-category">CAPRINS</div>
-                        <h3 class="product-title">Chèvre Locale</h3>
-                        <p class="product-description">
-                            Viande tendre et savoureuse, très appréciée pour brochettes et grillades.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">2,800 <span class="currency">FCFA / kg</span></div>
-                            <button class="add-to-cart">Ajouter</button>
+                    <!-- KILICHI DE BŒUF -->
+                    <div class="product-card">
+                        <span class="product-badge">Populaire</span>
+
+                        <a href="#modal-kilichi" class="product-image">
+                            <img src="images/Viade_boeuf.jpg"
+                                 alt="Kilichi de bœuf sur un plateau">
+                        </a>
+                        <div class="product-content">
+                            <div class="product-category">PRODUITS TRANSFORMÉS</div>
+                            <h3 class="product-title">Kilichi de Bœuf</h3>
+                            <p class="product-description">
+                                Viande séchée et grillée, parfaite en encas ou pour accompagner le thé.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">3,500 <span class="currency">FCFA / 250 g</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-
-                <!-- 4. POULET DE CHAIR -->
-                <div class="product-card">
-                    <span class="product-badge">Offre</span>
-
-                    <a href="#modal-poulet" class="product-image">
-                        <img src="images/poulet.jpeg"
-                             alt="Poulets locaux prêts à cuire">
-                    </a>
-                    <div class="product-content">
-                        <div class="product-category">VOLAILLE</div>
-                        <h3 class="product-title">Poulet de Chair</h3>
-                        <p class="product-description">
-                            Poulet abattu du jour, prêt à cuire au four, au charbon ou en sauce.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">3,200 <span class="currency">FCFA / poulet</span></div>
-                            <button class="add-to-cart">Ajouter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. ŒUFS DE FERME -->
-                <div class="product-card">
-                    <a href="#modal-oeufs" class="product-image">
-                        <img src="https://images.pexels.com/photos/7782392/pexels-photo-7782392.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
-                             alt="Plateau d’œufs de ferme">
-                    </a>
-                    <div class="product-content">
-                        <div class="product-category">VOLAILLE & ŒUFS</div>
-                        <h3 class="product-title">Œufs de Ferme</h3>
-                        <p class="product-description">
-                            Plateau de 30 œufs frais, issus de petits élevages périurbains.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">2,500 <span class="currency">FCFA</span></div>
-                            <button class="add-to-cart">Ajouter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. LAIT FRAIS -->
-                <div class="product-card">
-                    <a href="#modal-lait" class="product-image">
-                        <img src="https://images.pexels.com/photos/7782392/pexels-photo-7782392.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
-                             alt="Carafe de lait frais sur une table rustique">
-                    </a>
-                    <div class="product-content">
-                        <div class="product-category">LAIT & DÉRIVÉS</div>
-                        <h3 class="product-title">Lait Frais de Vache</h3>
-                        <p class="product-description">
-                            Lait cru collecté le matin en coopérative, idéal pour thé ou petit-déjeuner.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">900 <span class="currency">FCFA / L</span></div>
-                            <button class="add-to-cart">Ajouter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. FROMAGE LOCAL -->
-                <div class="product-card">
-                    <a href="#modal-fromage" class="product-image">
-                        <img src="https://images.pexels.com/photos/8472904/pexels-photo-8472904.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
-                             alt="Assortiment de fromages locaux">
-                    </a>
-                    <div class="product-content">
-                        <div class="product-category">LAIT & DÉRIVÉS</div>
-                        <h3 class="product-title">Fromage Local</h3>
-                        <p class="product-description">
-                            Fromage artisanal, parfait pour accompagner pain, riz ou salades.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">1,800 <span class="currency">FCFA / 500 g</span></div>
-                            <button class="add-to-cart">Ajouter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. KILICHI DE BŒUF -->
-                <div class="product-card">
-                    <span class="product-badge">Populaire</span>
-
-                    <a href="#modal-kilichi" class="product-image">
-                        <img src="https://images.pexels.com/photos/8472904/pexels-photo-8472904.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
-                             alt="Kilichi de bœuf sur un plateau">
-                    </a>
-                    <div class="product-content">
-                        <div class="product-category">PRODUITS TRANSFORMÉS</div>
-                        <h3 class="product-title">Kilichi de Bœuf</h3>
-                        <p class="product-description">
-                            Viande séchée et grillée, parfaite en encas ou pour accompagner le thé.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">3,500 <span class="currency">FCFA / 250 g</span></div>
-                            <button class="add-to-cart">Ajouter</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 9. POISSON DU FLEUVE NIGER -->
-                <div class="product-card">
-                    <a href="#modal-poisson" class="product-image">
-                        <img src="https://images.pexels.com/photos/8613971/pexels-photo-8613971.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
-                             alt="Poisson frais préparé dans un village au bord du fleuve Niger">
-                    </a>
-                    <div class="product-content">
-                        <div class="product-category">POISSONS</div>
-                        <h3 class="product-title">Poisson Frais du Fleuve</h3>
-                        <p class="product-description">
-                            Lot de 5 kg de poisson frais du fleuve Niger, prêt pour grillade ou fumage.
-                        </p>
-                        <div class="product-footer">
-                            <div class="product-price">15,000 <span class="currency">FCFA</span></div>
-                            <button class="add-to-cart">Ajouter</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- 2️⃣ PETITS ÉLEVAGES & VOLAILLES -->
+            <div class="category-block">
+                <h3 class="category-title">Petits élevages & volailles</h3>
+                <div class="products-grid">
+
+                    <!-- CHÈVRE LOCALE -->
+                    <div class="product-card">
+                        <a href="#modal-chevre" class="product-image">
+                            <img src="https://images.pexels.com/photos/26173202/pexels-photo-26173202.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
+                                 alt="Troupeau de chèvres dans un enclos">
+                        </a>
+                        <div class="product-content">
+                            <div class="product-category">CAPRINS</div>
+                            <h3 class="product-title">Chèvre Locale</h3>
+                            <p class="product-description">
+                                Viande tendre et savoureuse, très appréciée pour brochettes et grillades.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">2,800 <span class="currency">FCFA / kg</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- POULET DE CHAIR -->
+                    <div class="product-card">
+                        <span class="product-badge">Offre</span>
+
+                        <a href="#modal-poulet" class="product-image">
+                            <img src="images/poulet.jpeg"
+                                 alt="Poulets locaux prêts à cuire">
+                        </a>
+                        <div class="product-content">
+                            <div class="product-category">VOLAILLE</div>
+                            <h3 class="product-title">Poulet de Chair</h3>
+                            <p class="product-description">
+                                Poulet abattu du jour, prêt à cuire au four, au charbon ou en sauce.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">3,200 <span class="currency">FCFA / poulet</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ŒUFS DE FERME -->
+                    <div class="product-card">
+                        <a href="#modal-oeufs" class="product-image">
+                            <img src="https://images.pexels.com/photos/7782392/pexels-photo-7782392.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
+                                 alt="Plateau d’œufs de ferme">
+                        </a>
+                        <div class="product-content">
+                            <div class="product-category">VOLAILLE & ŒUFS</div>
+                            <h3 class="product-title">Œufs de Ferme</h3>
+                            <p class="product-description">
+                                Plateau de 30 œufs frais, issus de petits élevages périurbains.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">2,500 <span class="currency">FCFA</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 3️⃣ LAIT, FROMAGES & POISSON DU FLEUVE -->
+            <div class="category-block">
+                <h3 class="category-title">Lait, fromages & poisson du fleuve</h3>
+                <div class="products-grid">
+
+                    <!-- LAIT FRAIS -->
+                    <div class="product-card">
+                        <a href="#modal-lait" class="product-image">
+                            <img src="https://images.pexels.com/photos/7782392/pexels-photo-7782392.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
+                                 alt="Carafe de lait frais sur une table rustique">
+                        </a>
+                        <div class="product-content">
+                            <div class="product-category">LAIT & DÉRIVÉS</div>
+                            <h3 class="product-title">Lait Frais de Vache</h3>
+                            <p class="product-description">
+                                Lait cru collecté le matin en coopérative, idéal pour thé ou petit-déjeuner.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">900 <span class="currency">FCFA / L</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FROMAGE LOCAL -->
+                    <div class="product-card">
+                        <a href="#modal-fromage" class="product-image">
+                            <img src="https://images.pexels.com/photos/8472904/pexels-photo-8472904.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
+                                 alt="Assortiment de fromages locaux">
+                        </a>
+                        <div class="product-content">
+                            <div class="product-category">LAIT & DÉRIVÉS</div>
+                            <h3 class="product-title">Fromage Local</h3>
+                            <p class="product-description">
+                                Fromage artisanal, parfait pour accompagner pain, riz ou salades.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">1,800 <span class="currency">FCFA / 500 g</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- POISSON DU FLEUVE NIGER -->
+                    <div class="product-card">
+                        <a href="#modal-poisson" class="product-image">
+                            <img src="https://images.pexels.com/photos/8613971/pexels-photo-8613971.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
+                                 alt="Poisson frais préparé dans un village au bord du fleuve Niger">
+                        </a>
+                        <div class="product-content">
+                            <div class="product-category">POISSONS</div>
+                            <h3 class="product-title">Poisson Frais du Fleuve</h3>
+                            <p class="product-description">
+                                Lot de 5 kg de poisson frais du fleuve Niger, prêt pour grillade ou fumage.
+                            </p>
+                            <div class="product-footer">
+                                <div class="product-price">15,000 <span class="currency">FCFA</span></div>
+                                <button class="add-to-cart">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </section>
 
-        <!-- ========== MODALS (POPUPS) EN BAS DE LA PAGE ========== -->
+        <!-- ========== MODALS (POPUPS) ========== -->
 
         <!-- MODAL BŒUF -->
         <div id="modal-boeuf" class="modal">
@@ -228,22 +250,22 @@
                 <a href="#hero-elevage" class="modal-close">&times;</a>
 
                 <div class="modal-main-image">
-                    <img src="https://images.pexels.com/photos/33202347/pexels-photo-33202347.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
+                    <img src=""
                          alt="Colis de bœuf local prêt pour la vente">
                 </div>
 
                 <div class="modal-row-2">
                     <div class="modal-thumbs">
                         <div class="modal-thumb">
-                            <img src="https://images.pexels.com/photos/33202347/pexels-photo-33202347.jpeg?cs=srgb&fm=jpg&q=80&w=600"
+                            <img src="images/bf1.jpg"
                                  alt="Troupeau de bœufs au pâturage">
                         </div>
                         <div class="modal-thumb">
-                            <img src="https://images.pexels.com/photos/7358693/pexels-photo-7358693.jpeg?cs=srgb&fm=jpg&q=80&w=600"
+                            <img src="images/bf2.jpg"
                                  alt="Morceaux de viande de bœuf sur un étal">
                         </div>
                         <div class="modal-thumb">
-                            <img src="https://images.pexels.com/photos/8478057/pexels-photo-8478057.jpeg?cs=srgb&fm=jpg&q=80&w=600"
+                            <img src="images/bf3.jpg"
                                  alt="Viande de bœuf prête pour la cuisson">
                         </div>
                     </div>
@@ -417,22 +439,22 @@
                 <a href="#hero-elevage" class="modal-close">&times;</a>
 
                 <div class="modal-main-image">
-                    <img src="https://images.pexels.com/photos/7782392/pexels-photo-7782392.jpeg?cs=srgb&fm=jpg&q=80&w=1200"
+                    <img src="images/Viade_boeuf.jpg"
                          alt="Plateaux d’œufs frais de ferme">
                 </div>
 
                 <div class="modal-row-2">
                     <div class="modal-thumbs">
                         <div class="modal-thumb">
-                            <img src="https://images.pexels.com/photos/7782392/pexels-photo-7782392.jpeg?cs=srgb&fm=jpg&q=80&w=600"
+                            <img src="images/bf1.jpg"
                                  alt="Plateau de 30 œufs">
                         </div>
                         <div class="modal-thumb">
-                            <img src="https://images.pexels.com/photos/4199091/pexels-photo-4199091.jpeg?cs=srgb&fm=jpg&q=80&w=600"
+                            <img src="images/bf2.jpg"
                                  alt="Œufs dans un panier en osier">
                         </div>
                         <div class="modal-thumb">
-                            <img src="https://images.pexels.com/photos/4199094/pexels-photo-4199094.jpeg?cs=srgb&fm=jpg&q=80&w=600"
+                            <img src="images/bf3.jpg"
                                  alt="Œufs de ferme sur une table en bois">
                         </div>
                     </div>
