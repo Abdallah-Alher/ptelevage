@@ -19,7 +19,7 @@ body {
 
 .arriere-plan {
     position: relative;
-    height: 100vh;
+    height: 85vh;
     width: 100%;
     margin: auto;
     margin-top: 40px; /* espace sous une éventuelle navbar fixe globale */
